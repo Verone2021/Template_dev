@@ -23,9 +23,9 @@ project-template/
 
 ### 1. Clone & Setup
 ```bash
-git clone <your-repo>
-cd project-template
-cp .env.example .env
+git clone https://github.com/Verone2021/Template_dev.git
+cd Template_dev
+cp .env.example .env.local
 2. Configure API Keys
 Set these environment variables in your .env file or system.
 See "Configuration des variables d’environnement" below for details.
@@ -44,11 +44,13 @@ export NEXT_PUBLIC_SUPABASE_URL=https://your_project.supabase.co
 export NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
 export SUPABASE_ACCESS_TOKEN=your_service_role_key
 
-⚙️ Configuration des variables d’environnement
+⚙️ Configuration des variables d'environnement
 
 Ce projet inclut un fichier .env.example que vous devez copier et renommer :
-cp .env.example .env
-Ensuite, remplissez chaque variable avec vos propres valeurs.
+```bash
+cp .env.example .env.local
+```
+Ensuite, remplissez chaque variable avec vos propres valeurs dans `.env.local`.
 
 🔹 SUPABASE
 NEXT_PUBLIC_SUPABASE_URL : URL de votre projet Supabase (ex : https://xxxx.supabase.co)
@@ -68,8 +70,9 @@ NOTION_API_KEY : clé API de votre intégration Notion
 → Créer une intégration Notion
 
 📌 Bonnes pratiques :
-Ne jamais commiter votre .env dans un dépôt public
-Garder les clés sensibles uniquement sur des environnements sécurisés
+- Ne jamais commiter votre `.env.local` dans un dépôt public (déjà exclu par .gitignore)
+- Garder les clés sensibles uniquement sur des environnements sécurisés
+- Le fichier `.env.local` est automatiquement chargé par Next.js et les serveurs MCP
 
 🛠 MCP Servers Included
 Supabase : Database and storage access ✅ Pre-configured
